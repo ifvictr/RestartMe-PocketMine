@@ -6,10 +6,10 @@ broadcastMessage: "§eServer will restart in {RESTART_FORMAT_TIME}."
 countdownMessage: "Server restarting in {RESTART_TIME}..."
 #Sets the message format, will broadcast during countdown, refer to values.txt for entire list of usable values
 displayType: chat
-#Sets how players get the countdown message, three options: chat, popup, tip
+#Sets how players get the countdown message, two options: chat, popup
 memoryLimit: 1200M
 #Sets the max memory that can be allocated before server restarts due to overload
-#B = byte; K = kilobyte; M = megabyte; G = gigabyte; T = terabyte
+#B = byte; K = kilobyte; M = megabyte; G = gigabyte; T = terabyte; P = petabyte
 overloadQuitMessage: "§eServer restarted due to overload."
 #Sets the message sent to a player when they are kicked because of a server restart triggered by a memory overload
 quitMessage: "§aServer restarted."

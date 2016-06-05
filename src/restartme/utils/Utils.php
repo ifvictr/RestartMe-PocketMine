@@ -10,6 +10,7 @@ class Utils{
      */
     public static function calculateBytes($toCheck){
         $byteLimit = (int) substr(trim($toCheck), 0, 1);
+        //Should I add support for both types of suffixes (G and GB) in the future?
         switch(strtoupper(substr($toCheck, -1))){
             case "P": //petabyte
                 return $byteLimit * pow(1024, 5);
