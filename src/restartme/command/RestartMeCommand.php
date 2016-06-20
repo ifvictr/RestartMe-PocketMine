@@ -132,7 +132,7 @@ class RestartMeCommand extends Command{
                     break;
                 default:
                     $sender->sendMessage("Usage: /restartme <sub-command> [parameters]");
-                    return false;
+                    break;
             }
         }
         else{
