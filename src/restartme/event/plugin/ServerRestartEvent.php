@@ -2,16 +2,16 @@
 
 namespace restartme\event\plugin;
 
-use pocketmine\event\plugin\PluginEvent;
 use restartme\RestartMe;
 
-class ServerRestartEvent extends PluginEvent{
+class ServerRestartEvent extends RestartMeEvent{
     /** @var \pocketmine\event\HandlerList */
     public static $handlerList = null;
     /** @var int */
     private $mode;
     /**
      * @param RestartMe $plugin
+     * @param int $mode
      */
     public function __construct(RestartMe $plugin, $mode){
         parent::__construct($plugin);

@@ -27,7 +27,6 @@ class Utils{
             default:
                 return $byteLimit;
         }
-        return $byteLimit;
     }
     /**
      * Returns true if $toCheck is greater than the current memory usage

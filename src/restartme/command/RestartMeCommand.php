@@ -35,7 +35,7 @@ class RestartMeCommand extends Command{
         ];
         $sender->sendMessage("RestartMe commands:");
         foreach($commands as $name => $description){
-            $sender->sendMessage("/restartme ".$name.": ".$description);
+            $sender->sendMessage("/restartme $name: $description");
         }
     }
     /**
@@ -57,7 +57,7 @@ class RestartMeCommand extends Command{
                         if(is_numeric($args[1])){
                             $time = (int) $args[1];
                             $timer->addTime($time);
-                            $sender->sendMessage(TextFormat::GREEN."Added ".$time." to restart timer.");
+                            $sender->sendMessage(TextFormat::GREEN."Added $time to restart timer.");
                         }
                         else{
                             $sender->sendMessage(TextFormat::RED."Time value must be numeric.");
@@ -66,23 +66,23 @@ class RestartMeCommand extends Command{
                     else{
                         $sender->sendMessage(TextFormat::RED."Please specify a time value.");
                     }
-                    return true;
+                    break;
                 case "help":
                     $this->sendCommandHelp($sender);
-                    return true;
+                    break;
                 case "m":
                 case "memory":
                     $memLimit = $this->plugin->getMemoryLimit();
                     $sender->sendMessage("Bytes: ".memory_get_usage(true)."/".Utils::calculateBytes($memLimit));
-                    $sender->sendMessage("Memory-limit: ".$memLimit);
+                    $sender->sendMessage("Memory-limit: $memLimit");
                     $sender->sendMessage("Overloaded: ".(Utils::isOverloaded($memLimit) ? TextFormat::GREEN."yes" : TextFormat::RED."no"));
-                    return true;
+                    break;
                 case "set":
                     if(isset($args[1])){
                         if(is_numeric($args[1])){
                             $time = (int) $args[1];
                             $timer->setTime($time);
-                            $sender->sendMessage(TextFormat::GREEN."Set restart timer to ".$time.".");
+                            $sender->sendMessage(TextFormat::GREEN."Set restart timer to $time.");
                         }
                         else{
                             $sender->sendMessage(TextFormat::RED."Time value must be numeric.");
@@ -91,32 +91,32 @@ class RestartMeCommand extends Command{
                     else{
                         $sender->sendMessage(TextFormat::RED."Please specify a time value.");
                     }
-                    return true;
+                    break;
                 case "start":
-                    if($timer->isTimerPaused()){
+                    if($timer->isPaused()){
                         $timer->setPaused(false);
                         $sender->sendMessage(TextFormat::YELLOW."Timer is no longer paused.");
                     }
                     else{
                         $sender->sendMessage(TextFormat::RED."Timer is not paused.");
                     }
-                    return true;
+                    break;
                 case "stop":
-                    if($timer->isTimerPaused()){
+                    if($timer->isPaused()){
                         $sender->sendMessage(TextFormat::RED."Timer is already paused.");
                     }
                     else{
                         $timer->setPaused(true);
                         $sender->sendMessage(TextFormat::YELLOW."Timer has been paused.");
                     }
-                    return true;
+                    break;
                 case "s":
                 case "subtract":
                     if(isset($args[1])){
                         if(is_numeric($args[1])){
                             $time = (int) $args[1];
                             $timer->subtractTime($time);
-                            $sender->sendMessage(TextFormat::GREEN."Subtracted ".$time." from restart timer.");
+                            $sender->sendMessage(TextFormat::GREEN."Subtracted $time from restart timer.");
                         }
                         else{
                             $sender->sendMessage(TextFormat::RED."Time value must be numeric.");
@@ -125,11 +125,11 @@ class RestartMeCommand extends Command{
                     else{
                         $sender->sendMessage(TextFormat::RED."Please specify a time value.");
                     }
-                    return true;
+                    break;
                 case "t":
                 case "time":
                     $sender->sendMessage(TextFormat::YELLOW."Time remaining: ".$timer->getFormattedTime());
-                    return true;
+                    break;
                 default:
                     $sender->sendMessage("Usage: /restartme <sub-command> [parameters]");
                     return false;
@@ -139,5 +139,6 @@ class RestartMeCommand extends Command{
             $this->sendCommandHelp($sender);
             return false;
         }
+        return true;
     }
 }

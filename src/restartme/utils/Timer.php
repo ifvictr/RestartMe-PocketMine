@@ -5,7 +5,6 @@ namespace restartme\utils;
 use restartme\event\plugin\PauseTimerEvent;
 use restartme\event\plugin\ServerRestartEvent;
 use restartme\event\plugin\SetTimeEvent;
-use restartme\utils\Utils;
 use restartme\RestartMe;
 
 class Timer{

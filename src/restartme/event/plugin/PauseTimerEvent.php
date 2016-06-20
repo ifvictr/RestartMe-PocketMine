@@ -2,10 +2,9 @@
 
 namespace restartme\event\plugin;
 
-use pocketmine\event\plugin\PluginEvent;
 use restartme\RestartMe;
 
-class PauseTimerEvent extends PluginEvent{
+class PauseTimerEvent extends RestartMeEvent{
     /** @var \pocketmine\event\HandlerList */
     public static $handlerList = null;
     /** @var bool */

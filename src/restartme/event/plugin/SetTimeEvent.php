@@ -2,10 +2,9 @@
 
 namespace restartme\event\plugin;
 
-use pocketmine\event\plugin\PluginEvent;
 use restartme\RestartMe;
 
-class SetTimeEvent extends PluginEvent{
+class SetTimeEvent extends RestartMeEvent{
     /** @var \pocketmine\event\HandlerList */
     public static $handlerList = null;
     /** @var int */
