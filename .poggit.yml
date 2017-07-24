@@ -1,0 +1,7 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/iZeaoGamer/RestartMe-PocketMine
+branches:
+- patch-1
+projects:
+  RestartMe-PocketMine:
+    path: ""
+...
